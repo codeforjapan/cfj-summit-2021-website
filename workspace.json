@@ -1,6 +1,74 @@
 {
   "version": 1,
-  "projects": {},
+  "projects": {
+    "nuxt-app": {
+      "projectType": "application",
+      "root": "packages/nuxt-app",
+      "architect": {
+        "build": {
+          "builder": "@nx-plus/nuxt:browser",
+          "options": {
+            "buildDir": "dist/packages/nuxt-app"
+          },
+          "configurations": {
+            "production": {}
+          }
+        },
+        "serve": {
+          "builder": "@nx-plus/nuxt:server",
+          "options": {
+            "browserTarget": "nuxt-app:build",
+            "dev": true
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "nuxt-app:build:production",
+              "dev": false
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["packages/nuxt-app/**/*.{ts,js,vue}"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "packages/nuxt-app/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "nuxt-app-e2e": {
+      "root": "packages/nuxt-app-e2e",
+      "sourceRoot": "packages/nuxt-app-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "packages/nuxt-app-e2e/cypress.json",
+            "tsConfig": "packages/nuxt-app-e2e/tsconfig.e2e.json",
+            "devServerTarget": "nuxt-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "nuxt-app:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["packages/nuxt-app-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    }
+  },
   "cli": {
     "defaultCollection": "@nrwl/workspace"
   }

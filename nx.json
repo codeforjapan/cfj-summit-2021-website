@@ -22,7 +22,15 @@
       }
     }
   },
-  "projects": {},
+  "projects": {
+    "nuxt-app": {
+      "tags": []
+    },
+    "nuxt-app-e2e": {
+      "tags": [],
+      "implicitDependencies": ["nuxt-app"]
+    }
+  },
   "workspaceLayout": {
     "appsDir": "packages",
     "libsDir": "packages"
