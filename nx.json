@@ -1,7 +1,7 @@
 {
   "npmScope": "cfj-summit-2021-website",
   "affected": {
-    "defaultBase": "master"
+    "defaultBase": "default"
   },
   "implicitDependencies": {
     "workspace.json": "*",
