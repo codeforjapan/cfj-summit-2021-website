@@ -1,4 +1,10 @@
-# CfjSummit2021Website
+# codeforjapan/cfj-summit-2021-website
+
+**See [DEVELOPMENT.md](https://github.com/codeforjapan/cfj-summit-2021-website/blob/default/DEVELOPMENT.md) for memo in development.**
+
+**開発中のメモは [DEVELOPMENT.md](https://github.com/codeforjapan/cfj-summit-2021-website/blob/default/DEVELOPMENT.md) を参照。**
+
+---
 
 This project was generated using [Nx](https://nx.dev).
 
