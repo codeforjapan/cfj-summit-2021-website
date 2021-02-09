@@ -44,3 +44,27 @@
     nx g @nx-plus/nuxt:app nuxt-app
     ```
     Note: you must use `yarn nx` to launch Nx CLI, if you do not globally install it.
+
+## How to enable Typescript in unit testing (jest)?
+
+Typescript is not enabled under `packages/nuxt-app/test` by default, and the solution to this is a bit tricky due to IDE specifications.
+
+Many IDEs for now cannot recognize multiple `tsconfig.*.json`. Some of them (at least VS Code) don't either have a support for the file other than `tsconfig.json`. To solve this:
+
+1. Move `packages/*/tsconfig.spec.json` under `test/` in the package directory, and rename it to `tsconfig.json`.
+2. Correct the path to `tsconfig.json` in `jest.config.js`.
+    ```diff
+    globals: {
+    -  'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' },
+    -  'vue-jest': { tsConfig: 'packages/nuxt-app/tsconfig.spec.json' },
+    +  'ts-jest': { tsConfig: '<rootDir>/test/tsconfig.json' },
+    +  'vue-jest': { tsConfig: 'packages/nuxt-app/test/tsconfig.json' },
+    },
+    ```
+3. Add simple type definition for `*.vue`, as in `packages/nuxt-app/test/shims-sfc.d.ts`, to let the TS compiler interpret vue components correctly.
+    ```ts
+    declare module '*.vue' {
+      import Vue from 'vue'
+      export default Vue
+    }
+    ```
