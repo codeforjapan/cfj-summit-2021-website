@@ -15,7 +15,7 @@ module.exports = {
     '^vue$': 'vue/dist/vue.common.js',
   },
   globals: {
-    'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' },
-    'vue-jest': { tsConfig: 'packages/nuxt-app/tsconfig.spec.json' },
+    'ts-jest': { tsConfig: '<rootDir>/test/tsconfig.json' },
+    'vue-jest': { tsConfig: 'packages/nuxt-app/test/tsconfig.json' },
   },
 };
