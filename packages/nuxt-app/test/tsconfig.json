@@ -8,5 +8,5 @@
     "allowJs": true,
     "noEmit": true,
   },
-  "include": ["**/*.spec.ts", "**/*.d.ts", "**/*.spec.js", "../**/*.vue"]
+  "include": ["**/*.spec.ts", "**/*.d.ts", "**/*.spec.js"]
 }
